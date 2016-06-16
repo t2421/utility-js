@@ -1,0 +1,3 @@
+# Dependent
+jquery
+jquery.cookie
