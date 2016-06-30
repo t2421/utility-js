@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>example</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="js/classical.js"></script>
+
+    <script>
+        var examples = examples || {};
+        var SuperClass = examples.SuperClass;
+        var SubClass = examples.SubClass;
+
+        var obj1 = new SuperClass();
+        var obj2 = new SubClass();
+
+        obj1.greeting();
+        obj2.greeting();
+    </script>
+</body>
+</html>
