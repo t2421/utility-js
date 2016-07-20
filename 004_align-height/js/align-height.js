@@ -9,9 +9,13 @@ var examples = examples || {};
      
     ========================================================= */
     var BoxHeightAlign = (function() {
+        BoxHeightAlign.LAYOUT_CHANGE = "boxHeightLayoutChange";
+        BoxHeightAlign.LAYOUT_INIT = "boxHeightLayoutInit";
+
         function BoxHeightAlign(dom,options) {
             this.dom = dom;
             this.alignItems = this.dom.find(".boxheight-align-item");
+            this.prevAlignNum = undefined;
             var defaultOptions = {
                 isAll:false
             }
@@ -25,8 +29,14 @@ var examples = examples || {};
         };
 
         BoxHeightAlign.prototype._checkImgLoad = function(callback){
+            var that = this;
             var numImage = this.dom.find(".boxheight-align-item img").length;
             var count = 0;
+
+            if(numImage == 0){
+                $(that).trigger(BoxHeightAlign.LAYOUT_INIT);
+            }
+
             this.dom.find(".boxheight-align-item img").each(function(index, el) {
                 var src = $(el).attr("src");
                 var image = new Image();
@@ -42,6 +52,7 @@ var examples = examples || {};
             function checkComplete(){
                 count++;
                 if(count == numImage){
+                    $(that).trigger(BoxHeightAlign.LAYOUT_INIT);
                     callback();
                 }
             }
@@ -49,6 +60,11 @@ var examples = examples || {};
 
         BoxHeightAlign.prototype.update = function() {
             var alignNum = this._getAlignNum();
+            if(this.prevAlignNum != alignNum){
+                $(this).trigger(BoxHeightAlign.LAYOUT_CHANGE,[alignNum]);
+            }
+            this.prevAlignNum = alignNum;
+            
             if(this.options.isAll){
                 alignNum = this.alignItems.length;
             }

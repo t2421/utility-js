@@ -61,6 +61,14 @@
        });
        boxheightAlign.init();
 
+       $(boxheightAlign).on(BoxHeightAlign.LAYOUT_INIT,function(e){
+            console.log("boxheight-align-item内の画像がすべて読み込まれて、レイアウトが初期化されたよ！");
+       });
+
+       $(boxheightAlign).on(BoxHeightAlign.LAYOUT_CHANGE,function(e,alignNum){
+            console.log("横並びの個数が"+alignNum+"に変わったよ！");
+       });
+
        $(window).resize(function(event) {
            boxheightAlign.update();
        });
