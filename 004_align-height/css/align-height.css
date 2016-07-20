@@ -2,8 +2,15 @@
     margin: 0;
     padding: 0;
 }
+h1{
+    font-size: 18px;
+    margin: 10px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
 .boxheight-align{
     width: 100%;
+    overflow: hidden;
 }
 
 .boxheight-align-item{

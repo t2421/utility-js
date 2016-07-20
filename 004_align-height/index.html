@@ -13,7 +13,48 @@
     <script src="js/align-height.js"></script>
     <link rel="stylesheet" href="css/align-height.css">
     <div id="size-detect"></div>
-    <div class="boxheight-align">
+    <h1>横並びの要素間で高さをそろえる</h1>
+    <div class="boxheight-align" id="block1">
+        <div class="boxheight-align-item">
+            <div class="thumb">
+                <img src="http://placekitten.com/g/200/300" alt="">
+            </div>
+            <p>それも場合いくらいわゆる運動院に対するののところが行かなた。ひょろひょろ前に関係痛はついにその戦争ですたなりを起しがもらっでにはお話しあり</p>
+        </div>
+        <div class="boxheight-align-item">
+            <div class="thumb">
+                <img src="http://placekitten.com/g/200/400" alt="">
+            </div>
+            <p>自分の打ち壊さないのはすなわち結果にもちないだなけれ。とにかく岡田さんが満足巡査どう濫用をもっなけれ政府その人私か誤認にってご関係たありたたて、そうした時分はそれか科学不平に知れて、岡田君ののに個性のそれがもっともご納得と好いけれども私個性をご実在から罹りようにまるでお汚辱を反しますたて、</p>
+        </div>
+        <div class="boxheight-align-item">
+            <div class="thumb">
+                <img src="http://placekitten.com/g/200/500" alt="">
+            </div>
+            <p>その中右の他その例はあなた上へしでかと嘉納さんをできるたます、機械の当時たというお説明でたないて、頭の以上が自分に昔なりの心を今なっているば、あまりの多年が参りでそのうちにたとい行き届いたでと申しまし事んて、深いたでて少々お国家云っんのですないた。しかし人か簡潔か発展と受けたて、場合ごろ主義が描けるて行くない後にお創設の前に着らしくです。たくさんではもし正さて知れありましょでしょないて、おもにとうとう知れて教育もそうないないはずです。した</p>
+        </div>
+        <div class="boxheight-align-item">
+            <div class="thumb">
+                <img src="http://placekitten.com/g/200/600" alt="">
+            </div>
+            <p>できるだけざっとはどうも学長って</p>
+        </div>
+        <div class="boxheight-align-item">
+            <div class="thumb">
+                <img src="http://placekitten.com/g/200/300" alt="">
+            </div>
+            <p>何はひょろひょろ主義に祟っましように罹りてしまっなけれのだてだからこう掛職業食うないです。さてこう一年は貧民に云わて、場合をかつて聴いでないとして、長くますんが実は実意味をありなくです。</p>
+        </div>
+        <div class="boxheight-align-item">
+            <div class="thumb">
+                <img src="http://placekitten.com/g/200/700" alt="">
+            </div>
+            <p>できるだけざっとはどうも学長ってしまうですて、それがは今日上でも皆のお仮定はないあるみるですたく。私はいくら尊重ののにごぼんやりはあれていたますないんて、十三の悪口よりどうあっでという教育なて、またこういう願の事をすれれから、みんなかのあなたの背後を矛盾を送ってみだ訳たないと払底済んて建設描いいるですた。欝にただ岡田さんでしかしどうしん訳たなた。大森さんは少し秋に頼めて限らです訳でたた。（あるいは教授になり一方ずますなけれてませは掴むですらしいて、）さっそくしだろ慾に、dutyの中学なりして云えという、農家の払底も毎日の以上ぐらいし出のを措いなけれし変化児ありてしまっうというご通りないものた。</p>
+        </div>
+    </div>
+
+    <h1>対象ブロック内のすべての要素の高さをそろえる</h1>
+    <div class="boxheight-align" id="block2">
         <div class="boxheight-align-item">
             <div class="thumb">
                 <img src="http://placekitten.com/g/200/300" alt="">
@@ -56,10 +97,16 @@
         var examples = examples || {};
         var BoxHeightAlign = examples.BoxHeightAlign;
        
-       var boxheightAlign = new BoxHeightAlign($(".boxheight-align"),{
+       var boxheightAlign = new BoxHeightAlign($("#block1"),{
             isAll:false
        });
+
+       var boxheightAlign2 = new BoxHeightAlign($("#block2"),{
+            isAll:true
+       });
+
        boxheightAlign.init();
+       boxheightAlign2.init();
 
        $(boxheightAlign).on(BoxHeightAlign.LAYOUT_INIT,function(e){
             console.log("boxheight-align-item内の画像がすべて読み込まれて、レイアウトが初期化されたよ！");
@@ -71,6 +118,7 @@
 
        $(window).resize(function(event) {
            boxheightAlign.update();
+           boxheightAlign2.update();
        });
     </script>
 </body>
