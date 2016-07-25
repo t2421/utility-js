@@ -13,8 +13,8 @@ var examples = examples || {};
      
     ========================================================= */
     var DateHelper = (function() {
-      DateHelper.DATE_SET_COMPLETE = "dateSetComplete"; //年月日すべてセットされたら
-      DateHelper.DATE_CHANGE = "dateChange"; //年月日のいずれかが変更されたら
+        DateHelper.DATE_SET_COMPLETE = "dateSetComplete"; //年月日すべてセットされたら
+        DateHelper.DATE_CHANGE = "dateChange"; //年月日のいずれかが変更されたら
 
         function DateHelper(options) {
             this._year = options.year;
@@ -90,7 +90,7 @@ var examples = examples || {};
             this._year.off('change');
             this._year.on('change', function(e) {
                 that._updateValue();
-                $(that).trigger(DateHelper.DATE_CHANGE,[that._selectYear,that._selectMonth,that._selectDay]);
+                $(that).trigger(DateHelper.DATE_CHANGE, [that._selectYear, that._selectMonth, that._selectDay]);
                 if ($(this).val() == "") {
                     that._reset();
                     return;
@@ -110,8 +110,8 @@ var examples = examples || {};
             this._month.html(monthOptions);
             this._month.off('change');
             this._month.on('change', function(e) {
-              that._updateValue();
-              $(that).trigger(DateHelper.DATE_CHANGE,[that._selectYear,that._selectMonth,that._selectDay]);
+                that._updateValue();
+                $(that).trigger(DateHelper.DATE_CHANGE, [that._selectYear, that._selectMonth, that._selectDay]);
                 that._initDayOption(year, $(this).val())
             });
         };
@@ -125,10 +125,10 @@ var examples = examples || {};
             }
             this._day.off('change');
             this._day.on('change', function(e) {
-              that._updateValue();
-                if(that._year.val() != "" && that._month.val() != "" && that._day.val() != ""){
-                  $(that).trigger(DateHelper.DATE_CHANGE,[that._selectYear,that._selectMonth,that._selectDay]);
-                  $(that).trigger(DateHelper.DATE_SET_COMPLETE,[that._selectYear,that._selectMonth,that._selectDay]);
+                that._updateValue();
+                if (that._year.val() != "" && that._month.val() != "" && that._day.val() != "") {
+                    $(that).trigger(DateHelper.DATE_CHANGE, [that._selectYear, that._selectMonth, that._selectDay]);
+                    $(that).trigger(DateHelper.DATE_SET_COMPLETE, [that._selectYear, that._selectMonth, that._selectDay]);
                 }
             });
             this._day.html(dayOptions);
@@ -141,7 +141,7 @@ var examples = examples || {};
         };
 
         DateHelper.prototype._reset = function() {
-          this._selectYear = undefined;
+            this._selectYear = undefined;
             this._selectMonth = undefined;
             this._selectDay = undefined;
             this._month.html("");
