@@ -20,7 +20,11 @@ var examples = examples || {};
             this._year = options.year;
             this._month = options.month;
             this._day = options.day;
+
+            //今日からどれくらい先か
             this._startDateDiff = options.startDateDiff || 0;
+
+            //開始日からどれくらい先か
             this._endDateDiff = options.endDateDiff || 365;
 
             this._reset();
@@ -97,8 +101,6 @@ var examples = examples || {};
                 }
                 that._initMonthOption($(this).val())
             });
-
-
         }
 
         DateHelper.prototype._initMonthOption = function(year) {
